@@ -9,5 +9,6 @@ from .models import Car
 def cars_list(request):
     cars = Car.objects.all()
 
-    serializer=CarSerializer(cars)
+    serializer=CarSerializer(cars, many=True)
     return Response(serializer.data)
+
